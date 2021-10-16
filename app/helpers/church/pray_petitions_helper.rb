@@ -1,0 +1,2 @@
+module Church::PrayPetitionsHelper
+end

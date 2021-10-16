@@ -1,0 +1,27 @@
+<%= form_with(model: church_pray_petition) do |form| %>
+  <% if church_pray_petition.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(church_pray_petition.errors.count, "error") %> prohibited this church_pray_petition from being saved:</h2>
+
+      <ul>
+        <% church_pray_petition.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :pray_for %>
+    <%= form.text_field :pray_for %>
+  </div>
+
+  <div class="field">
+    <%= form.label :request_from %>
+    <%= form.text_field :request_from %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
