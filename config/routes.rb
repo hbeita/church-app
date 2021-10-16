@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :church do
+    resources :pray_petitions
+  end
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
