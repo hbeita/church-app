@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Add details about the boilerplate
 
-Things you may want to cover:
+### STEPS
 
-* Ruby version
+clone
 
-* System dependencies
+dc = docker-compose
 
-* Configuration
+docker-compose build
 
-* Database creation
+docker-compose up
 
-* Database initialization
+docker-compose exec web rails db:create
 
-* How to run the test suite
+docker-compose exec web rails db:migrate
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+bundle exec rails webpacker:install:<YOUCHOOSE> -- this is not the one!!!
