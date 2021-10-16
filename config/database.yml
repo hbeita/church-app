@@ -1,0 +1,25 @@
+primary_default: &primary_default
+    adapter: postgresql
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    username: <%= Rails.application.credentials.dig(:database, :postgres_username) || ENV["POSTGRES_USERNAME"] %>
+    password: <%= Rails.application.credentials.dig(:database, :postgres_password) || ENV["POSTGRES_PASSWORD"] %>
+    host: <%= ENV["POSTGRES_HOST"] || "0.0.0.0" %>
+    encoding: utf8
+
+development:
+  primary:
+    <<: *primary_default
+    database: <%= ENV["POSTGRES_DB"] || "app_dev" %>
+
+test:
+  # These use a different db name var than usual (MYSQL_TEST_DB vs just MYSQL_DB).
+  # That's on purpose. I want to make sure you never accidentally clobber a real
+  # database by running the test suite against it.
+  primary:
+    <<: *primary_default
+    database: <%= ENV["POSTGRES_TEST_DB"] || "app_test" %>
+
+production:
+  primary:
+    <<: *primary_default
+    database: <%= ENV["POSTGRES_DB"] || "app_production" %>
