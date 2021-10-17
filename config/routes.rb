@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
   namespace :church do
+    namespace :api do
+      namespace :v1 do
+        get 'pray_petitions/index'
+        post 'pray_petitions/create'
+        delete 'pray_petition/:id', to: 'pray_petitions#delete'
+      end
+    end
+  end
+
+  namespace :church do
     resources :pray_petitions
   end
+
   devise_for :users do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
