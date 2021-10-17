@@ -1,2 +1,4 @@
-class Church::PrayPetition < ApplicationRecord
+module Church
+  class PrayPetition < ApplicationRecord
+  end
 end
