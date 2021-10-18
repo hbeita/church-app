@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :pray_petitions
   end
 
-  devise_for :users do
+  devise_for :users, skip: [:registrations] do #I'm not going to allow registrations for now
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
