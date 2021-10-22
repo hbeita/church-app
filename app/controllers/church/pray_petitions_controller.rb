@@ -1,4 +1,5 @@
 class Church::PrayPetitionsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:create, :new]
   before_action :set_church_pray_petition, only: %i[ show edit update destroy ]
 
   # GET /church/pray_petitions or /church/pray_petitions.json

@@ -2,7 +2,6 @@ module Church
   module Api
     module V1
       class PrayPetitionsController < ApplicationController
-        skip_before_action :authenticate_user!, only: [:create, :new]
         protect_from_forgery except: [:create, :new]
         before_action :set_pray_petition, only: [:show, :destroy]
 

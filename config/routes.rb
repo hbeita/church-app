@@ -7,9 +7,6 @@ Rails.application.routes.draw do
         delete 'pray_petition/:id', to: 'pray_petitions#delete'
       end
     end
-  end
-
-  namespace :church do
     resources :pray_petitions
   end
 
@@ -17,6 +14,6 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  root 'dashboard#index'
+  root 'church/pray_petitions#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,26 +1,20 @@
-import React, { useState } from "react";
-import { render } from "react-dom";
+import React, { useEffect, useState } from "react";
 import {Button, Form, Row, Col, Container} from "react-bootstrap"
 import {
-  createMemorySource,
-  createHistory,
-  LocationProvider,
-  navigate,
-  Router
+  navigate
 } from "@reach/router"
 
-// container text-center d-flex align-items-center justify-content-center
 const CenterView = (props) => {
   return <Container>
       <Row className="show-grid">
-          <Col xs={1} md={4}></Col>
-          <Col xs={4} md={4}>{props.children}</Col>
-          <Col xs={1} md={4}></Col>
+          <Col xs={1} md={2}></Col>
+          <Col xs={4} md={6}>{props.children}</Col>
+          <Col xs={1} md={2}></Col>
       </Row>
   </Container>
 }
 
-const ThanksPage = () => {
+export const ThanksPage = () => {
   const handleClick = () => {
     navigate('/church/pray_petitions/new', {replace: true})
   }
@@ -31,7 +25,7 @@ const ThanksPage = () => {
   </CenterView>
 }
 
-const FormPage = () => {
+export const FormPage = () => {
   const [name, setName] = useState("");
   const [prayPetition, setPrayPetition] = useState("");
 
@@ -78,9 +72,6 @@ const FormPage = () => {
             placeholder="Nombre"
             value={name}
             onChange={e => setName(e.target.value)}/>
-          <Form.Text className="text-muted">
-            No compartimos tu información.
-          </Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -99,14 +90,3 @@ const FormPage = () => {
     </Form>
   </CenterView>
 }
-
-const AppV2 = () => (
-  <Router>
-    <FormPage path="/church/pray_petitions/new" />
-    <ThanksPage path="/thanks" />
-  </Router>
-)
-
-document.addEventListener("DOMContentLoaded", () => {
-  render(<AppV2 />, document.getElementById("pray-petition-div"));
-});
