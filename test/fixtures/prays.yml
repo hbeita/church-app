@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  checked: false
+  submitted_by: MyString
+  pray: MyString
+
+two:
+  checked: false
+  submitted_by: MyString
+  pray: MyString
