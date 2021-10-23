@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Checked:</strong>
+  <%= @pray.checked %>
+</p>
+
+<p>
+  <strong>Submitted by:</strong>
+  <%= @pray.submitted_by %>
+</p>
+
+<p>
+  <strong>Pray:</strong>
+  <%= @pray.pray %>
+</p>
+
+<%= link_to 'Edit', edit_pray_path(@pray) %> |
+<%= link_to 'Back', prays_path %>

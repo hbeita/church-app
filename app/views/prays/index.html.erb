@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Prays</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Checked</th>
+      <th>Submitted by</th>
+      <th>Pray</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @prays.each do |pray| %>
+      <tr>
+        <td><%= pray.checked %></td>
+        <td><%= pray.submitted_by %></td>
+        <td><%= pray.pray %></td>
+        <td><%= link_to 'Show', pray %></td>
+        <td><%= link_to 'Edit', edit_pray_path(pray) %></td>
+        <td><%= link_to 'Destroy', pray, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pray', new_pray_path %>

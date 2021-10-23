@@ -1,0 +1,32 @@
+<%= form_with(model: pray) do |form| %>
+  <% if pray.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pray.errors.count, "error") %> prohibited this pray from being saved:</h2>
+
+      <ul>
+        <% pray.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :submitted_by %>
+    <%= form.text_field :submitted_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pray %>
+    <%= form.text_area :pray, cols: "45", rows: "5" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :checked %>
+    <%= form.check_box :checked %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

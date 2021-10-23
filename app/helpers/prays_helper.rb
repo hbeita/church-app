@@ -1,0 +1,2 @@
+module PraysHelper
+end
