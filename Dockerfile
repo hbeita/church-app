@@ -41,7 +41,11 @@ COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . /app
 
-EXPOSE 3000
+# EXPOSE 3000
+
+# Don't run as root
+RUN useradd -m myuser
+USER myuser
 
 # Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+CMD ["rails", "server", "-b", "0.0.0.0:", $PORT]
