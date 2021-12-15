@@ -28,6 +28,3 @@ jobs:
 
       - name: RuboCop Linter Action   
         uses: andrewmcodes-archive/rubocop-linter-action@v3.3.0
-        with:
-          # Define a path to your optional action config file.
-          action_config_path: .github/worflows/rubocop.yml
